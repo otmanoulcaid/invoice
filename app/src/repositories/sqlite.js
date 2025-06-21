@@ -3,12 +3,14 @@ import Database from "../data/Database.js";
 class ORM
 {
     #db = null;
+    static i = 0;
 
-    constructor(db) {
-       this.#db = db;
+    constructor(db)
+    {
+        this.#db = db;
     }
 
-    static async getORMInstance(path)
+    static async getORMInstance()
     {
         const db = await Database.getDBInstance('./src/data/invoices.sqlite');
         Database.loadTables('./src/data/sql/');
@@ -75,4 +77,6 @@ class ORM
     }
 }
 
-export default ORM;
+const database = await ORM.getORMInstance();
+
+export default database;

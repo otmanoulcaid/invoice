@@ -1,37 +1,35 @@
-import ORM from "./sqlite.js";
+import database from "./sqlite.js";
 
 export default class Repository
 {
-    static orm = null;
     constructor(table)
     {
-        if (Repository.orm == null)
-            ORM.getORMInstance().then(orm => Repository.orm = orm)
+        this.database = database       
         this.table = table;
     }
 
     async create(client)
     {
-        return await Repository.orm.insert(this.table, client);
+        return await database.insert(this.table, client);
     }
 
     async findBy(filter, ...fields)
     {
-        return await Repository.orm.getOne(this.table, filter, fields);
+        return await database.getOne(this.table, filter, fields);
     }
 
     async findAll(...fields)
-    {
-        return await Repository.orm.getAll(this.table, null, fields);
+    {        
+        return await database.getAll(this.table, null, fields);
     }
 
     async update(id, updatedData)
     {
-        return await Repository.orm.update(this.table, updatedData, id);
+        return await database.update(this.table, updatedData, id);
     }
 
     async delete(id)
     {
-        return await Repository.orm.delete(this.table, id);
+        return await database.delete(this.table, id);
     }
 }
