@@ -1,0 +1,26 @@
+GET http://localhost:3003/api/product/Ordinateur%20Portable HTTP/1.1
+Cookie: token=test
+
+###
+
+GET http://localhost:3003/api/product HTTP/1.1
+Cookie: token=test
+
+
+###
+
+GET http://localhost:3003/api/client/Otman%20Oulcaid HTTP/1.1
+
+###
+
+GET http://localhost:3003/api/client/ HTTP/1.1
+
+###
+
+GET http://localhost:3003/api/invoice HTTP/1.1
+###
+
+GET http://localhost:3003/api/invoice/FAC-001 HTTP/1.1
+
+###
+
