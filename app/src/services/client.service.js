@@ -22,9 +22,11 @@ export default class ClientService
         return await this.clientRepo.findAll();
     }
 
-    async updateClient(id, data)
+    async updateClient(nom, data)
     {
-        return await this.clientRepo.update(id, data);
+        console.log(nom);
+        console.log(data);
+        return await this.clientRepo.update({ nom }, data);
     }
 
     async deleteClient(id)
