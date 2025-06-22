@@ -37,12 +37,8 @@ export const create = async (req, res) => {
 
 export const update = async (req, res) => {
     try {
-        const updated = await factureService.updateFacture(req.params.numero, req.body);
-
-        if (!updated)
-            return res.status(404).send({ message: "Facture à mettre à jour non trouvée" });
-
-        res.status(200).send(updated);
+        await factureService.updateFacture(req.params.numero, req.body);
+        res.status(200).send({ message: "updated"});
     } catch (error) {
         console.error("Erreur update:", error);
         res.status(500).send({ message: "Erreur serveur lors de la mise à jour de la facture" });
@@ -51,11 +47,7 @@ export const update = async (req, res) => {
 
 export const remove = async (req, res) => {
     try {
-        const deleted = await factureService.deleteFacture(req.params.numero);
-
-        if (!deleted)
-            return res.status(404).send({ message: "Facture à supprimer non trouvée" });
-
+        await factureService.deleteFacture(req.params.numero);
         res.status(200).send({ message: "Facture supprimée avec succès" });
     } catch (error) {
         console.error("Erreur remove:", error);

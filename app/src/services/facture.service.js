@@ -22,9 +22,9 @@ export default class FactureService
         return await this.factureRepo.findAll();
     }
 
-    async updateFacture(id, data)
+    async updateFacture(numero, data)
     {
-        return await this.factureRepo.update(id, data);
+        return await this.factureRepo.update(data, { numero });
     }
 
     async deleteFacture(id)

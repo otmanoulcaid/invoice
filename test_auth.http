@@ -1,13 +1,4 @@
-GET http://localhost:3003/api/product/Ordinateur%20Portable HTTP/1.1
-Cookie: token=test
-
-###
-
-GET http://localhost:3003/api/product HTTP/1.1
-Cookie: token=test
-
-
-###
+### five first functional endpoints ### 
 
 GET http://localhost:3003/api/client/Otman%20Oulcaid HTTP/1.1
 
@@ -40,13 +31,78 @@ Content-Type: application/json
 }
 
 
+
+DELETE http://localhost:3003/api/client/ali HTTP/1.1
+
+
+
+### ------------------end------------------ ### 
+
+GET http://localhost:3003/api/product/Ordinateur%20Portable HTTP/1.1
+Cookie: token=test
+
 ###
 
+GET http://localhost:3003/api/product HTTP/1.1
+Cookie: token=test
+
+###
+
+POST http://localhost:3003/api/product HTTP/1.1
+Content-Type: application/json
+
+{
+    "nom": "souris",
+    "prix_u": 10.00,
+    "qty": 1,
+    "facture": "FAC-001"
+}
+###
+
+PUT http://localhost:3003/api/client/souris HTTP/1.1
+Content-Type: application/json
+
+{
+    "nom": "souris",
+    "prix_u": 10.00,
+    "qty": 3,
+    "facture": "FAC-001"
+}
+
+###
+
+DELETE http://localhost:3003/api/client/souris HTTP/1.1
+
+### ----------------end----------------- ###
+
 GET http://localhost:3003/api/invoice HTTP/1.1
+
 ###
 
 GET http://localhost:3003/api/invoice/FAC-001 HTTP/1.1
 
 ###
 
-POST
+POST http://localhost:3003/api/invoice HTTP/1.1
+Content-Type: application/json
+
+{
+    "numero": "FAC-003",
+    "date": "2025-06-21",
+    "client_id": 1
+}
+
+###
+
+PUT http://localhost:3003/api/invoice/FAC-001 HTTP/1.1
+Content-Type: application/json
+
+{
+    "numero": "FAC-001",
+    "date": "2025-06-22",
+    "client_id": 1
+}
+
+###
+
+DELETE http://localhost:3003/api/invoice/FAC-003 HTTP/1.1

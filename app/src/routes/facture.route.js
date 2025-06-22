@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', factureController.getAll);
 router.get('/:numero', factureController.getByNumber);
 router.post('/', factureController.create);
-router.put('/:nom', factureController.update);
+router.put('/:numero', factureController.update);
 router.delete('/:numero', factureController.remove);
 
 export default router;

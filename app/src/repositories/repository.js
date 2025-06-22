@@ -24,8 +24,8 @@ export default class Repository
     }
 
     async update(id, updatedData)
-    {
-        return await database.update(this.table, updatedData, id);
+    { 
+        await database.update(this.table, id, updatedData);
     }
 
     async delete(id)
