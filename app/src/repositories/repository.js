@@ -15,7 +15,7 @@ export default class Repository
 
     async findBy(filter, ...fields)
     {
-        return await database.getOne(this.table, filter, fields);
+        return await database.getAll(this.table, filter, fields);
     }
 
     async findAll(...fields)

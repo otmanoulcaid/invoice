@@ -1,11 +1,16 @@
+DROP TABLE IF EXISTS Client;
+
 CREATE TABLE IF NOT EXISTS Client (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nom TEXT NOT NULL,
+    nom TEXT PRIMARY KEY,
     adress TEXT,
     ville TEXT,
     pays TEXT
 );
 
 INSERT INTO Client (nom, adress, ville, pays) VALUES 
-('Otman Oulcaid', '123 Rue Principale', 'fes', 'Maroc'),
-('aymane lamhamdi', '45 Avenue des Champs', 'casa', 'Maroc');
+('Bara Wissal', 'quartier inbiat', 'sale', 'Maroc'),
+('Haimoura Houssameddine', 'medina', 'fes', 'Maroc'),
+('aymane lamhamdi', 'route ain chkef', 'fes', 'Maroc'),
+('Oulcaid Otman', '123 Rue Principale', 'fes', 'Maroc'),
+('Bozari Zakaria', 'twin center', 'casablanca', 'Maroc'),
+('El Bakkouri Salma', 'quartier dkkarat', 'fes', 'Maroc');

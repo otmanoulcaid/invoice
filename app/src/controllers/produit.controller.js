@@ -11,9 +11,9 @@ export const getAll = async (req, res) => {
     }
 };
 
-export const getByName = async (req, res) => {
+export const getByFacture = async (req, res) => {
     try {
-        const produit = await produitService.getProduitByName(req.params.nom);
+        const produit = await produitService.getProduitByFacture(req.params.facture);
         if (!produit) {
             return res.status(404).send({ error: "Produit not found" });
         }

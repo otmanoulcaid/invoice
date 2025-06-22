@@ -12,9 +12,9 @@ export default class ProduitService
         return await this.produitRepo.create(produitDto);
     }
 
-    async getProduitByName(nom)
+    async getProduitByFacture(facture)
     {
-        return await this.produitRepo.findBy({ nom });
+        return await this.produitRepo.findBy({ facture });
     }
 
     async getAllProduits()
