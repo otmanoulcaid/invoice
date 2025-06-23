@@ -23,4 +23,5 @@ export const auth = async (req, res, next) =>
         return res.status(401).send({ error: 'Unauthorized' });
 
     req.user = decoded;
+    
 };

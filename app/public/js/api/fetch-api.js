@@ -61,17 +61,28 @@ export async function fetchInvoicesByClient(clientName) {
   }
 }
 
-export async function updateInvoice(numero, updatedData) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/invoice/${encodeURIComponent(numero)}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedData)
-    });
+const update = async (url, data) =>{  
+  await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  })
+} 
 
-    return handleResponse(response);
+export async function updateInvoice(numero, updatedData) {
+  try {    
+    await update(`${API_BASE_URL}/invoice/${encodeURIComponent(numero)}`, 
+      {
+        numero: updatedData.numero,
+        date: updatedData.date
+      }
+    )
+    await update(`${API_BASE_URL}/client/${encodeURIComponent(updatedData.client.nom)}`,  updatedData.client)
+    updatedData.products.forEach(async product => {
+      await update(`${API_BASE_URL}/product/${encodeURIComponent(product.nom)}`, product)
+    })
   } catch (error) {
     console.error('Error updating invoice:', error);
     throw error;
