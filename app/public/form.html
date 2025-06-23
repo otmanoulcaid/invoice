@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Management</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-form {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 25px;
+      text-align: center;
+      color: #4e4e4e;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .btn-submit {
+      background-color: #fcbf49; /* yellow button like in the screenshot */
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #e6a843;
+    }
+  </style>
+</head>
+<body>
+
+  <form id='form' class="login-form">
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="nom" type="text" id="username" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" id="password" required>
+    </div>
+
+    <button id="submit" type="submit" class="btn-submit">Sign In</button>
+  </form>
+  <script>
+    document.getElementById('submit').addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const nom = document.getElementById('nom').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        try {
+            const response = await fetch('http://localhost:3003/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nom, password })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.cookie = `token=${data.token}; path=/;`;
+                window.location.href = 'index.html';
+            } else {
+                alert("Nom ou mot de passe incorrect");
+            }
+        } catch (error) {
+            console.error("Erreur réseau :", error);
+            alert("Erreur lors de la connexion au serveur");
+        }
+    });
+  </script>
+</body>
+</html>

@@ -12,7 +12,7 @@ export const login = async (req, res) =>
     try {
         const user = await authService.authenticate(nom)
         // logic of unregistred user wil be implemented later
-        const token = authService.generateToken(user)
+        const token = authService.generateToken(user[0])
 
         res.cookie('token', token, { httpOnly: true })
         return res.status(200).json({ message: "Connexion réussie", user })
