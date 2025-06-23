@@ -10,7 +10,7 @@ import { env } from './config/env.config.js';
 export class Server
 {
     constructor() {
-        this.port = env.server.port || 3000;
+        this.port = env.server.port || 3003;
         this.host = env.server.host
         this.app = express();
         this.config();
