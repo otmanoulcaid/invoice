@@ -94,3 +94,38 @@ export async function deleteInvoice(numero) {
     throw error;
   }
 }
+
+export async function addInvoice({ numero, date, nom, adress, ville, pays, products }) {
+  try {
+    const clientResponse = await fetch(`${API_BASE_URL}/client`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ nom, adress, ville, pays })
+    });
+    const client = await handleResponse(clientResponse);
+
+    const invoiceResponse = await fetch(`${API_BASE_URL}/invoice`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ numero, date, client_id: client.id })
+    });
+    await handleResponse(invoiceResponse);
+
+    for (const product of products) {
+      await fetch(`${API_BASE_URL}/product`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ...product, facture: numero })
+      }).then(handleResponse);
+    }
+  } catch (error) {
+    console.error('Error adding invoice:', error);
+    throw error;
+  }
+}

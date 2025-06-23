@@ -40,7 +40,7 @@ body {
 }
 
 #results-container {
-        display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 35px 0px;
@@ -80,7 +80,7 @@ button:hover {
 }
 
 #edit-btn {
-    background-color: #474754;
+    background-color: #45565e;
 }
 
 #delete-btn {
