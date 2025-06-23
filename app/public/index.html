@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Management App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/invoice.css">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <script src="js/index.js" type="module"></script>
+    
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand-container" id="brand">
+            <img src="assets/logo.png" alt="logo" class="logo">
+            <div id="app-title" class="app-title">Invoice Manager</div>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search Invoice...">
+            <select id="search-type">
+                <option value="client">By Client</option>
+                <option value="number">By Number</option>
+
+            </select>
+            <button id="search-btn">Search</button>
+        </div>
+    </nav>
+
+    <div class="welcome-container" id="welcome-container">
+        <h1 class="welcome-title">MQL - Invoice Management</h1>
+        <p class="welcome-description">
+            Welcome to the MQL Invoice Management. You can create, update, and manage invoices, clients, and
+            products easily. Everything is organized to simplify your billing process.
+        </p>
+
+
+        <div>
+            <button id="new-invoice-btn">New Invoice</button>
+        </div>
+    </div>
+
+    <div id="results-container"></div>
+
+</body>
+
+</html>

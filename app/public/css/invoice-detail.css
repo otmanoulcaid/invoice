@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+}
+
+body {
+
+    color: #1c232a;
+    background-color: #f0f0f0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 35px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.brand-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 40px;
+}
+
+.app-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#results-container {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 16px;
+    margin: auto;
+    text-align: center;
+}
+
+#edit-btn {
+    background-color: #474754;
+}
+
+#delete-btn {
+    background-color: #e44a4a;
+}

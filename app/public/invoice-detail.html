@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/invoice.css">
+    <link rel="stylesheet" href="css/invoice-detail.css">
+    <script src="js/invoice-detail.js" type="module"></script>
+    <title>Invoice Management App</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand-container" id="brand">
+            <img src="assets/logo.png" alt="logo" class="logo">
+            <div id="app-title" class="app-title">Invoice Manager</div>
+        </div>
+        <div class="action-buttons">
+            <button id="edit-btn">
+                <span class="btn-content">
+                    <img class="btn-icon" src="assets/edit.svg">
+                    <span>Edit Invoice</span>
+                </span>
+            </button>
+            <button id="delete-btn">
+                <span class="btn-content">
+                    <img class="btn-icon" src="assets/delete.svg">
+                    <span>Delete Invoice</span>
+                </span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="results-container"></div>
+
+</body>
+
+</html>
