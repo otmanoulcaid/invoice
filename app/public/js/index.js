@@ -7,27 +7,14 @@ import { renderInvoices } from "./views/home.js";
 
 document.addEventListener('DOMContentLoaded', initHomePage);
 
-function cookieExist(token) {
-    return document.cookie.split('; ').some(cookie => cookie.includes(token));
-}
-
-
 async function initHomePage() {
     try {
-        if (!cookieExist('token'))
-        {
-            window.location.href = 'form.html'
-        }
-        else
-        {
-            const invoices = await fetchAllInvoices();
-            renderInvoices(invoices);
-            document.getElementById('search-btn').addEventListener('click', handleSearch);
-            document.getElementById('brand').addEventListener('click', () => location.reload());
-            document.getElementById('new-invoice-btn').addEventListener('click', () => window.location.href = 'add-invoice.html');
-            document.getElementById('results-container').addEventListener('click', handleInvoiceClick);
-        }
-        
+        const invoices = await fetchAllInvoices();
+        renderInvoices(invoices);
+        document.getElementById('search-btn').addEventListener('click', handleSearch);
+        document.getElementById('brand').addEventListener('click', () => location.reload());
+        document.getElementById('new-invoice-btn').addEventListener('click', () => window.location.href = 'add-invoice.html');
+        document.getElementById('results-container').addEventListener('click', handleInvoiceClick);
     } catch (error) {
         console.error("Failed to load data:", error);
         alert("Failed to load invoices. Please try again later.");
