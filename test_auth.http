@@ -38,7 +38,7 @@ DELETE http://localhost:3003/api/client/ali HTTP/1.1
 
 ### ------------------end------------------ ### 
 
-GET http://localhost:3003/api/product/Ordinateur%20Portable HTTP/1.1
+GET http://localhost:3003/api/product/FAC-002 HTTP/1.1
 Cookie: token=test
 
 ###
@@ -59,7 +59,7 @@ Content-Type: application/json
 }
 ###
 
-PUT http://localhost:3003/api/client/souris HTTP/1.1
+PUT http://localhost:3003/api/client/FAC-003 HTTP/1.1
 Content-Type: application/json
 
 {
