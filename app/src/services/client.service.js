@@ -24,8 +24,6 @@ export default class ClientService
 
     async updateClient(nom, data)
     {
-        console.log(nom);
-        console.log(data);
         return await this.clientRepo.update({ nom }, data);
     }
 

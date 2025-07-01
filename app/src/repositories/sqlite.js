@@ -51,7 +51,6 @@ class ORM
         const updatedField = Object.keys(dataObject).map(key => `${key} = ?`).join(', ');
         const currField = Object.keys(creteriaObject).map(key => `${key} = ?`).join(' AND ');
         const statement = `UPDATE ${table} SET ${updatedField} WHERE ${currField}`;
-        console.log(statement);
         await this.#db.run(statement, [...Object.values(dataObject), ...Object.values(creteriaObject)])
     }
 

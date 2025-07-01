@@ -27,9 +27,9 @@ export default class FactureService
         return await this.factureRepo.update(data, { numero });
     }
 
-    async deleteFacture(id)
+    async deleteFacture(numero)
     {
-        return await this.factureRepo.delete(id);
+        return await this.factureRepo.delete({ numero });
     }
 
     async getFacturesByClientId(clientId)
