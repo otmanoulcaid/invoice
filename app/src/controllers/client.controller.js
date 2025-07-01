@@ -21,7 +21,7 @@ export const getByName = async (req, res) => {
 };
 
 export const create = async (req, res) => {
-    try {
+    try {        
         const created = await clientService.createClient(req.body);
         res.status(201).send(created);
     } catch (error) {
